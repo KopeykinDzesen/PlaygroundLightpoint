@@ -1,0 +1,656 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"di",
+				"disabled"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"Fl",
+				"Flights"
+			],
+			[
+				"ta",
+				"tableAddons"
+			],
+			[
+				"Add",
+				"Addon__r.Name\t(SearchFlightController.cls)"
+			],
+			[
+				"in",
+				"insertStr"
+			],
+			[
+				"Tim",
+				"TimeOfFlight__c\t(SearchAndBookingFlight.page)"
+			],
+			[
+				"P",
+				"Price__c\t(SearchFlightController.cls)"
+			],
+			[
+				"F",
+				"Flights"
+			],
+			[
+				"tabl",
+				"tableAddons"
+			],
+			[
+				"do",
+				"document"
+			],
+			[
+				"A",
+				"Addons"
+			],
+			[
+				"all",
+				"allPricesMap"
+			],
+			[
+				"pri",
+				"pricesFlightsList"
+			],
+			[
+				"pr",
+				"pricesAddonsList"
+			],
+			[
+				"al",
+				"allPricesList"
+			],
+			[
+				"Ci",
+				"CityFrom"
+			],
+			[
+				"pricesAdd",
+				"pricesAddonsList"
+			],
+			[
+				"pricesFli",
+				"pricesFlightsList"
+			],
+			[
+				"Pl",
+				"Pillow"
+			],
+			[
+				"add",
+				"addonsTable"
+			],
+			[
+				"pricesAddon",
+				"pricesAddonPillows"
+			],
+			[
+				"price",
+				"pricesAddons"
+			],
+			[
+				"priceAE",
+				"pricesAEat"
+			],
+			[
+				"pricesAd",
+				"pricesAddonEating\t(SearchFlightController.cls)"
+			],
+			[
+				"pric",
+				"pricesAPillow"
+			],
+			[
+				"te",
+				"testStr"
+			],
+			[
+				"Addon__r",
+				"Addon__r.RecordType.Name"
+			],
+			[
+				"qu",
+				"querySelectAddons"
+			],
+			[
+				"que",
+				"query"
+			],
+			[
+				"Pla",
+				"Plaids"
+			],
+			[
+				"Addo",
+				"Addon__c"
+			],
+			[
+				"Ad",
+				"Addon__c"
+			],
+			[
+				"onc",
+				"onchange\t(String)"
+			],
+			[
+				"fo",
+				"foodTable"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"on",
+				"oncomplete\t(String)"
+			],
+			[
+				"Pri",
+				"Price__c"
+			],
+			[
+				"p",
+				"pricesFlights"
+			],
+			[
+				"Pa",
+				"PageReference\t[Standard Apex Class]"
+			],
+			[
+				"DD",
+				"DDateTo"
+			],
+			[
+				"Da",
+				"DateTo"
+			],
+			[
+				"Fli",
+				"Flight__c"
+			],
+			[
+				"JS",
+				"JSON\t[Standard Apex Class]"
+			],
+			[
+				"pad",
+				"padding-bottom\tproperty"
+			],
+			[
+				"pa",
+				"padding-left\tproperty"
+			],
+			[
+				"City",
+				"CityFrom"
+			],
+			[
+				"C",
+				"CityTo"
+			],
+			[
+				"str",
+				"stroka"
+			],
+			[
+				"Pi",
+				"Plaids\t(SearchAndBookingFlight.page)"
+			],
+			[
+				"Cy",
+				"CityFrom"
+			],
+			[
+				"D",
+				"DateTo"
+			],
+			[
+				"pag",
+				"apex:pageMessages"
+			],
+			[
+				"apex",
+				"apex:form"
+			],
+			[
+				"re",
+				"reRender\t(Object)"
+			],
+			[
+				"out",
+				"apex:outputText"
+			],
+			[
+				"me",
+				"apex:pageMessages"
+			],
+			[
+				"search",
+				"searchButton"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"ch",
+				"checkFilling"
+			],
+			[
+				"Se",
+				"SearchAndBookingFlight.page"
+			],
+			[
+				"cont",
+				"controller\t(String)"
+			],
+			[
+				"Date",
+				"DateFrom"
+			],
+			[
+				"T",
+				"today()"
+			],
+			[
+				"Boo",
+				"BookedFlight__c"
+			],
+			[
+				"addo",
+				"addonPricePlaid"
+			],
+			[
+				"fl",
+				"flightPrice"
+			],
+			[
+				"se",
+				"searchPrice"
+			],
+			[
+				"searh",
+				"searchPrice"
+			],
+			[
+				"acti",
+				"apex:actionSupport"
+			],
+			[
+				"Pr",
+				"Price__c"
+			],
+			[
+				"va",
+				"var\t(String)"
+			],
+			[
+				"pageBl",
+				"apex:pageBlockTable"
+			],
+			[
+				"f",
+				"flightId"
+			],
+			[
+				"d",
+				"dateTo"
+			],
+			[
+				"da",
+				"dateFrom"
+			],
+			[
+				"date",
+				"dateTo"
+			],
+			[
+				"B",
+				"BookingFlight__c"
+			],
+			[
+				"Sea",
+				"SearchFlightController"
+			],
+			[
+				"page",
+				"apex:pageBlockSectionItem"
+			],
+			[
+				"pageB",
+				"apex:pageBlockSection"
+			],
+			[
+				"com",
+				"apex:commandButton"
+			],
+			[
+				"ac",
+				"action\t(ApexPages.Action)"
+			],
+			[
+				"inc",
+				"apex:includeScript"
+			],
+			[
+				"__",
+				"__name__"
+			],
+			[
+				"co",
+				"color\tproperty"
+			],
+			[
+				"text",
+				"text-align\tproperty"
+			],
+			[
+				"i",
+				"i_love_python"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/pages/SearchAndBookingFlight.page",
+			"settings":
+			{
+				"buffer_size": 11427,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/SearchFlightController.cls",
+			"settings":
+			{
+				"buffer_size": 4057,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"menu",
+				"View: Toggle Menu"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"repl",
+				"Set Syntax: Io Repl"
+			],
+			[
+				"git",
+				"Git: Commit history"
+			],
+			[
+				"Ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 233.846160889,
+		"history":
+		[
+			"python3 example.py",
+			"python example.py",
+			"python example"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/dzesen/SublimeTextWorkspace/PlaygroundLightpoint",
+		"/home/dzesen/SublimeTextWorkspace/PlaygroundLightpoint/src",
+		"/home/dzesen/SublimeTextWorkspace/PlaygroundLightpoint/src/classes",
+		"/home/dzesen/SublimeTextWorkspace/PlaygroundLightpoint/src/pages"
+	],
+	"file_history":
+	[
+		"/home/dzesen/SublimeTextWorkspace/PlaygroundLightpoint/src/pages/BookingFlight.page",
+		"/home/dzesen/SublimeTextWorkspace/PlaygroundLightpoint/src/classes/TestClass.cls",
+		"/home/dzesen/SublimeTextWorkspace/PlaygroundLightpoint/src/pages/HelloJQuery.page",
+		"/home/dzesen/.ключики",
+		"/home/dzesen/.config/sublime-text-3/Packages/User/mavensmate.sublime-settings",
+		"/home/dzesen/Alina/Python/example.py",
+		"/home/dzesen/Alina/CSS/example_css.css",
+		"/home/dzesen/.config/sublime-text-3/Packages/User/colorcoder.sublime-settings",
+		"/home/dzesen/Alina/HTML/example_html.html",
+		"/home/dzesen/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings"
+	],
+	"find":
+	{
+		"height": 32.8
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"insertStr",
+			"pricesAddonsList",
+			"Addons",
+			"pricesAEat",
+			"Number",
+			"CityFrom",
+			"; ",
+			"CityFrom",
+			"getComponentById",
+			"Room__c",
+			"roomId",
+			"Room__c",
+			"roomId",
+			"rooDmId",
+			"roomId"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/pages/SearchAndBookingFlight.page",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11427,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9532,
+								9532
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Visualforce.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 508.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/classes/SearchFlightController.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4057,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2461,
+								2461
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 960.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.8
+	},
+	"input":
+	{
+		"height": 66.3076934814
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.MavensMate-OutputPanel":
+	{
+		"height": 290.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "PlaygroundLightpoint.sublime-project",
+	"replace":
+	{
+		"height": 60.8
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 304.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

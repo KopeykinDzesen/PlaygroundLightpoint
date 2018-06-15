@@ -1,0 +1,313 @@
+<apex:page controller="SearchFlightController">
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+
+<head>
+</head>
+
+<body>
+
+	<apex:slds />
+
+	<apex:form>
+		<apex:pageMessages />
+		<apex:actionFunction name="doSearch" action="{!doSearch}" oncomplete="showTables({!allPrices})" reRender="tables">
+			<apex:param name="CityFrom" assignTo="{!CityFrom}" value="" />
+			<apex:param name="CityTo" assignTo="{!CityTo}" value="" />
+			<apex:param name="DateFrom" assignTo="{!DateFrom}" value="" />
+			<apex:param name="DateTo" assignTo="{!DateTo}" value="" />
+			<apex:param name="Food" assignTo="{!Food}" value="" />
+			<apex:param name="Plaid" assignTo="{!Plaid}" value="" />
+			<apex:param name="Pillow" assignTo="{!Pillow}" value="" />
+		</apex:actionFunction>
+		<apex:actionFunction name="doBooking" action="{!doBooking}" />	
+	</apex:form>
+
+	<div class="slds-scope">
+
+		<div class="slds-grid slds-wrap">
+
+			<div class="slds-col slds-size_1-of-1 slds-align_absolute-center slds-p-top_medium slds-p-bottom_medium">
+
+				<button class="slds-button slds-button_outline-brand" onclick="searchButton()">Search Flights
+					<svg class="slds-button__icon slds-button__icon_right" aria-hidden="true">
+						<use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#search')}"></use>
+					</svg>
+				</button>
+				<button class="slds-button slds-button_outline-brand" disabled="true" onclick="bookingButton()" id="bookingButton">Booking Flight
+					<svg class="slds-button__icon slds-button__icon_right" aria-hidden="true">
+						<use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#save')}"></use>
+					</svg>
+				</button>
+
+			</div>
+
+			<div class="slds-col slds-size_1-of-2">
+
+				<div class="slds-form slds-form_compound">
+					<fieldset class="slds-form-element">
+						<legend class="slds-form-element__label slds-form-element__legend slds-text-title_caps">Pathway</legend>
+						<div class="slds-form-element__group">
+							<div class="slds-form-element__row">
+								<div class="slds-form-element slds-size_1-of-2">
+									<abbr class="slds-required" title="required">*</abbr>
+									<label class="slds-form-element__label" for="CityFrom">Departures</label>
+									<input type="text" id="CityFrom" class="slds-input" required="true" value="Minsk" />
+								</div>
+								<div class="slds-form-element slds-size_1-of-2">
+									<abbr class="slds-required" title="required">*</abbr>
+									<label class="slds-form-element__label" for="CityTo">Arrivals</label>
+									<input type="text" id="CityTo" class="slds-input" required="true" value="Paris" />
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<fieldset class="slds-form-element">
+						<legend class="slds-form-element__label slds-text-title_caps">Dates</legend>
+						<div class="slds-form-element__group">
+							<div class="slds-form-element__row">
+								<div class="slds-form-element slds-size_1-of-2">
+									<abbr class="slds-required" title="required">*</abbr>
+									<label class="slds-form-element__label" for="DateFrom">Date From</label>
+									<input type="date" id="DateFrom" class="slds-input" required="true" value="" />
+								</div>
+								<div class="slds-form-element slds-size_1-of-2">
+									<abbr class="slds-required" title="required">*</abbr>
+									<label class="slds-form-element__label" for="DateTo">Date To</label>
+									<input type="date" id="DateTo" class="slds-input" required="true" value="" />
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+
+			</div>
+
+			<div class="slds-col slds-size_1-of-2 slds-p-left_xx-large slds-p-right_xx-large">
+
+				<div class="slds-form slds-form_compound">
+					<fieldset class="slds-form-element">
+						<legend class="slds-form-element__label slds-form-element__legend slds-text-title_caps">Addons</legend>
+						<div class="slds-form-element__group">
+							<div class="slds-form-element__row">
+								<div class="slds-form-element slds-size_1-of-1">
+									<label class="slds-form-element__label" for="Food">Food</label>
+									<input type="text" id="Food" class="slds-input" disabled="true" value="Fish" />
+								</div>
+							</div>
+							<div class="slds-form-element__row">
+								<div class="slds-form-element slds-size_1-of-1">
+									<label class="slds-form-element__label" for="Plaid">Plaid</label>
+									<input type="text" id="Plaid" class="slds-input" disabled="true" value="Big Plaid" />
+								</div>
+							</div>
+							<div class="slds-form-element__row">
+								<div class="slds-form-element slds-size_1-of-1">
+									<label class="slds-form-element__label" for="Pillow">Pillow</label>
+									<input type="text" id="Pillow" class="slds-input" disabled="true" value="Small Pillow" />
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+
+			</div>
+
+			<apex:form id="tables">
+				
+				<apex:pageMessages />
+
+				<div class="slds-table_edit_container slds-is-relative slds-p-top_medium slds-p-bottom_medium" hidden="true" id="flightsTable">
+					<legend class="slds-form-element__label slds-form-element__legend slds-text-title_caps">Flights</legend>
+					<table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout slds-no-cell-focus slds-table_edit" role="grid">
+						<thead>
+							<tr class="slds-line-height_reset">
+								<th style="width: 2.5rem;">
+								</th>
+								<th class="slds-text-title_caps" style="width: 10rem; padding-left: 0.5rem">
+									<span>Number</span>
+								</th>
+								<th class="slds-text-title_caps" style="width: 10rem; padding-left: 0.5rem">
+									<span>Departures</span>
+								</th>
+								<th class="slds-text-title_caps" style="width: 10rem; padding-left: 0.5rem">
+									<span>Arrivals</span>
+								</th>
+								<th class="slds-text-title_caps" style="width: 8rem; padding-left: 0.5rem">
+									<span>Price</span>
+								</th>
+								<th class="slds-text-title_caps" style="width: 14rem; padding-left: 0.5rem">
+									<span>Time</span>
+								</th>
+								<th class="slds-text-title_caps" style="width: 8rem; padding-left: 0.5rem">
+									<span>Type</span>
+								</th>
+							</tr>
+						</thead>
+						<tbody id="tableFlights">
+							
+						</tbody>
+					</table>
+				</div>
+
+				<div class="slds-table_edit_container slds-is-relative slds-p-top_medium slds-p-bottom_medium" hidden="true" id="addonsTable">
+					<legend class="slds-form-element__label slds-form-element__legend slds-text-title_caps">Addons</legend>
+					<table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout slds-no-cell-focus slds-table_edit" role="grid">
+						<thead>
+							<tr class="slds-line-height_reset">
+								<th style="width: 2.5rem;">
+								</th>
+								<th class="slds-text-title_caps" style="width: 10rem; padding-left: 0.5rem">
+									<span>Name</span>
+								</th>
+								<th class="slds-text-title_caps" style="width: 10rem; padding-left: 0.5rem">
+									<span>Price</span>
+								</th>
+							</tr>
+						</thead>
+						<tbody id="tableAddons">
+
+						</tbody>
+					</table>
+				</div>
+
+			</apex:form>
+
+		</div>
+
+	</div>
+
+
+
+
+	<!-- Scripts -->
+	<script type="text/javascript">
+
+		let CityFrom = document.getElementById('CityFrom');
+		let CityTo = document.getElementById('CityTo');
+		let DateFrom = document.getElementById('DateFrom');
+		let DateTo = document.getElementById('DateTo');
+		let Food = document.getElementById('Food');
+		let Plaid = document.getElementById('Plaid');
+		let Pillow = document.getElementById('Pillow');
+
+		function checkFilling() {
+			if (CityFrom.value != '' &&
+				CityTo.value != '' &&
+				DateFrom.value != '' &&
+				DateTo.value != '') {
+				Food.removeAttribute('disabled');
+				Plaid.removeAttribute('disabled');
+				Pillow.removeAttribute('disabled');
+			} else {
+				Food.setAttribute('disabled', 'true');
+				Plaid.setAttribute('disabled', 'true');
+				Pillow.setAttribute('disabled', 'true');
+			}
+		};
+
+		
+		CityFrom.oninput = checkFilling;
+		CityTo.oninput = checkFilling;
+		DateFrom.oninput = checkFilling;
+		DateTo.oninput = checkFilling;
+
+		function searchButton() {
+			let CityFrom = document.getElementById('CityFrom').value;
+			let CityTo = document.getElementById('CityTo').value;
+			let DateFrom = document.getElementById('DateFrom').value;
+			let DateTo = document.getElementById('DateTo').value;
+			let Food = document.getElementById('Food').value;
+			let Plaid = document.getElementById('Plaid').value;
+			let Pillow = document.getElementById('Pillow').value;
+
+			doSearch(CityFrom, CityTo, DateFrom, DateTo, Food, Plaid, Pillow);
+		};
+
+		function bookingButton(){
+			
+		};
+
+		function showTables(allPrices) {		
+
+			document.getElementById('bookingButton').setAttribute('disabled', 'true');
+			if (allPrices.Flights.length != 0){
+				document.getElementById('flightsTable').removeAttribute('hidden');
+				document.getElementById('bookingButton').removeAttribute('disabled');
+			}
+			if (allPrices.Addons.length != 0){
+				document.getElementById('addonsTable').removeAttribute('hidden');
+			}
+
+			console.log(allPrices);
+
+			let tableFlights = document.getElementById('tableFlights');
+			let tableAddons = document.getElementById('tableAddons');
+
+			let insertStr = '';
+			for (let i = 0; i < allPrices.Flights.length; i++) {
+
+				insertStr += '<tr class="slds-hint-parent">' +
+								'<td>' +
+									'<span class="slds-checkbox">' +
+										'<input type="checkbox" id="flight-' + i + '"/>' +
+										'<label class="slds-checkbox__label" for="flight-' + i + '" id="check-button-label-01">' +
+											'<span class="slds-checkbox_faux"></span>' +
+										'</label>' +
+									'</span>' +
+								'</td>' +
+								'<td class="slds-cell-edit">' +
+									'<span>' + allPrices.Flights[i].Flight__r.Number__c + '</span>' +
+								'</td>' +
+								'<td class="slds-cell-edit">' +
+									'<span>' + allPrices.Flights[i].Flight__r.CityFrom__c + '</span>' +
+								'</td>' +
+								'<td class="slds-cell-edit">' +
+									'<span>' + allPrices.Flights[i].Flight__r.CityTo__c + '</span>' +
+								'</td>' +
+								'<td class="slds-cell-edit">' +
+									'<span>' + allPrices.Flights[i].Value__c + '</span>' +
+								'</td>' +
+								'<td class="slds-cell-edit">' +
+									'<span>' + allPrices.Flights[i].Flight__r.TimeOfFlight__c + '</span>' +
+								'</td>' +
+								'<td class="slds-cell-edit">' +
+									'<span>' + allPrices.Flights[i].Flight__r.Type__c + '</span>' +
+								'</td>' +
+							'</tr>';
+
+			}
+
+			tableFlights.innerHTML = insertStr;
+
+			insertStr = '';
+			for (let i = 0; i < allPrices.Addons.length; i++) {
+
+				insertStr += '<tr class="slds-hint-parent">' +
+								'<td>' +
+									'<span class="slds-checkbox">' +
+										'<input type="checkbox" id="addon-' + i + '"/>' +
+										'<label class="slds-checkbox__label" for="addon-' + i + '" id="check-button-label-01">' +
+											'<span class="slds-checkbox_faux"></span>' +
+										'</label>' +
+									'</span>' +
+								'</td>' +
+								'<td class="slds-cell-edit">' +
+									'<span>' + allPrices.Addons[i].Addon__r.Name + '</span>' +
+								'</td>' +
+								'<td class="slds-cell-edit">' +
+									'<span>' + allPrices.Addons[i].Value__c + '</span>' +
+								'</td>' +
+							'</tr>';
+
+			}
+
+			tableAddons.innerHTML = insertStr;
+
+		};
+
+	</script>
+
+</body>
+
+</html>
+</apex:page>

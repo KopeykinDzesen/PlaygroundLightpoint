@@ -1,0 +1,17 @@
+{
+    "projectName": "PlaygroundLightpoint",
+    "username": "kopeykindzzesen@lightpoint.com",
+    "id": "91b532f0-6a41-11e8-b93c-7d2fa11c1f6c",
+    "namespace": "",
+    "orgType": "developer",
+    "loginUrl": "https://login.salesforce.com/",
+    "instanceUrl": "https://ap5.salesforce.com",
+    "workspace": "/home/dzesen/SublimeTextWorkspace",
+    "subscription": [
+        "ApexClass",
+        "ApexComponent",
+        "ApexPage",
+        "ApexTrigger",
+        "StaticResource"
+    ]
+}
