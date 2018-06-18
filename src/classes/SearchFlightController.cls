@@ -17,6 +17,8 @@ public class SearchFlightController {
     public String addonsBook { get; set; }
     public String bookedFlight { get; set; }
 
+    public BookedFlight__c newBookedFlight { get; set; }
+
     public List<Integer> testStr { get; set; }
 
     public SearchFlightController() {
@@ -33,6 +35,7 @@ public class SearchFlightController {
         this.flightBook = '';
         this.addonsBook = '';
         this.bookedFlight = '';
+        this.newBookedFlight = new BookedFlight__c();
 
         this.testStr = new List<Integer>();
     }
@@ -118,22 +121,34 @@ public class SearchFlightController {
 
     public void doBooking() {
 
-        Integer flightNumber = (Integer)System.JSON.deserialize(flightBook, Integer.class);
-        List<Integer> addonsNumbers = (List<Integer>)System.JSON.deserialize(addonsBook, List<Integer>.class);
-
-        testStr.add(flightNumber);
-        testStr.addAll(addonsNumbers);
-
         Decimal totalPrice = 0;
-        Flight__c flight = pricesFlightsList[flightNumber].Flight__r;
-        totalPrice += pricesFlightsList[flightNumber].Value__c;
+        Flight__c flight = new Flight__c();
         List<Addon__c> addons = new List<Addon__c>();
-        for (Integer i = 0; i < addonsNumbers.size(); i++) {
-            addons.add(pricesAddonsList[addonsNumbers[i]].Addon__r);
-            totalPrice += pricesAddonsList[addonsNumbers[i]].Value__c;
+
+        if (flightBook == '') {
+            Price__c expensiveFlight = pricesFlightsList[0];
+            for (Integer i = 0; i < pricesFlightsList.size(); i++) {
+                if (pricesFlightsList[i].Value__c > expensiveFlight.Value__c) {
+                    expensiveFlight = pricesFlightsList[i];
+                }
+            }
+            flight = expensiveFlight.Flight__r;
+            totalPrice += expensiveFlight.Value__c;
+        } else {           
+            Integer flightNumber = (Integer)System.JSON.deserialize(flightBook, Integer.class);
+            flight = pricesFlightsList[flightNumber].Flight__r;
+            totalPrice += pricesFlightsList[flightNumber].Value__c;
+        }
+        
+        if (addonsBook != '') {
+            List<Integer> addonsNumbers = (List<Integer>)System.JSON.deserialize(addonsBook, List<Integer>.class);
+            for (Integer i = 0; i < addonsNumbers.size(); i++) {
+                addons.add(pricesAddonsList[addonsNumbers[i]].Addon__r);
+                totalPrice += pricesAddonsList[addonsNumbers[i]].Value__c;
+            }
         }
 
-        BookedFlight__c newBookedFlight = new BookedFlight__c(BookingDate__c = System.today(),
+        newBookedFlight = new BookedFlight__c(BookingDate__c = System.today(),
                                                               TotalPrice__c = totalPrice,
                                                               Flight__c = flight.Id);
 
