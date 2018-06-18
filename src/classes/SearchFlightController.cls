@@ -130,15 +130,22 @@ public class SearchFlightController {
         List<Addon__c> addons = new List<Addon__c>();
         for (Integer i = 0; i < addonsNumbers.size(); i++) {
             addons.add(pricesAddonsList[addonsNumbers[i]].Addon__r);
+            totalPrice += pricesAddonsList[addonsNumbers[i]].Value__c;
         }
-            totalPrice += pricesAddonsList[addonsNumbers[0]].Value__c;
 
         BookedFlight__c newBookedFlight = new BookedFlight__c(BookingDate__c = System.today(),
                                                               TotalPrice__c = totalPrice,
-                                                              Flight__c = flight.Id,
-                                                              Addon__c = addons[0].Id);
+                                                              Flight__c = flight.Id);
 
         insert newBookedFlight;
+
+        //List<Addon__c> addonsWithBf = [SELECT Id, (SELECT Id FROM Booked_Flights__r) FROM Addon__c WHERE Id IN :addons]; 
+
+        //for (Addon__c ad : addonsWithBf) {
+        //    ad.Booked_Flights__r.add(newBookedFlight);
+        //}
+
+        //update addons;
 
     }
 
