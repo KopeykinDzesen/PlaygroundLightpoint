@@ -185,7 +185,7 @@
                 "id": "ApexTrigger.BookingFlightTrigger",
                 "lastModifiedById": "0057F000003ctR9QAI",
                 "lastModifiedByName": "Dzesen Kopeykin",
-                "lastModifiedDate": "2018-06-18T18:22:31.000Z",
+                "lastModifiedDate": "2018-06-18T19:05:08.000Z",
                 "manageableState": "unmanaged",
                 "type": "ApexTrigger",
                 "leaf": true,
