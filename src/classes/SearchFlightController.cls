@@ -118,21 +118,27 @@ public class SearchFlightController {
 
     public void doBooking() {
 
-        Integer flight = (Integer)System.JSON.deserialize(flightBook, Integer.class);
-        List<Integer> addons = (List<Integer>)System.JSON.deserialize(addonsBook, List<Integer>.class);
+        Integer flightNumber = (Integer)System.JSON.deserialize(flightBook, Integer.class);
+        List<Integer> addonsNumbers = (List<Integer>)System.JSON.deserialize(addonsBook, List<Integer>.class);
 
-        testStr.add(flight);
-        testStr.addAll(addons);
+        testStr.add(flightNumber);
+        testStr.addAll(addonsNumbers);
 
-        BookedFlight__c newBookedFlight = new BookedFlight__c();
+        Decimal totalPrice = 0;
+        Flight__c flight = pricesFlightsList[flightNumber].Flight__r;
+        totalPrice += pricesFlightsList[flightNumber].Value__c;
+        List<Addon__c> addons = new List<Addon__c>();
+        for (Integer i = 0; i < addonsNumbers.size(); i++) {
+            addons.add(pricesAddonsList[addonsNumbers[i]].Addon__r);
+        }
+            totalPrice += pricesAddonsList[addonsNumbers[0]].Value__c;
 
-        //test
-        //test-1
-        //test-2
-        //test-3
-        //test-4
+        BookedFlight__c newBookedFlight = new BookedFlight__c(BookingDate__c = System.today(),
+                                                              TotalPrice__c = totalPrice,
+                                                              Flight__c = flight.Id,
+                                                              Addon__c = addons[0].Id);
 
-
+        insert newBookedFlight;
 
     }
 
