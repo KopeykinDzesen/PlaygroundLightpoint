@@ -120,8 +120,11 @@ public class SearchFlightController {
 
         Integer flight = (Integer)System.JSON.deserialize(flightBook, Integer.class);
         List<Integer> addons = (List<Integer>)System.JSON.deserialize(addonsBook, List<Integer>.class);
+
         testStr.add(flight);
         testStr.addAll(addons);
+
+        BookedFlight__c newBookedFlight = new BookedFlight__c();
 
 
 
