@@ -10,14 +10,11 @@ public class SearchFlightController {
 
     public String allPrices { get; set; }
 
-    private List<Price__c> pricesFlightsList;
-    private List<Price__c> pricesAddonsList;
+    private List<Price__c> pricesFlightsList { get; set; }
+    private List<Price__c> pricesAddonsList { get; set; }
+    private Map<String, List<Price__c>> allPricesMap { get; set; }
 
-    public String flightBook { get; set; }
-    public String addonsBook { get; set; }
-    public String bookedFlight { get; set; }
-
-    public List<Integer> testStr { get; set; }
+    public String testStr { get; set; }
 
     public SearchFlightController() {
         this.CityFrom = '';
@@ -30,11 +27,9 @@ public class SearchFlightController {
         this.allPrices = '';
         this.pricesFlightsList = new List<Price__c>();
         this.pricesAddonsList = new List<Price__c>();
-        this.flightBook = '';
-        this.addonsBook = '';
-        this.bookedFlight = '';
+        this.allPricesMap = new Map<String, List<Price__c>>();
 
-        this.testStr = new List<Integer>();
+        this.testStr = '';
     }
 
     public void doSearch() {
@@ -42,7 +37,7 @@ public class SearchFlightController {
         allPrices = '';
         pricesFlightsList = new List<Price__c>();
         pricesAddonsList = new List<Price__c>();
-        Map<String, List<Price__c>> allPricesMap = new Map<String, List<Price__c>>();
+        allPricesMap = new Map<String, List<Price__c>>();
 
         ApexPages.getMessages().clear();
 
@@ -117,13 +112,6 @@ public class SearchFlightController {
     }
 
     public void doBooking() {
-
-        Integer flight = (Integer)System.JSON.deserialize(flightBook, Integer.class);
-        List<Integer> addons = (List<Integer>)System.JSON.deserialize(addonsBook, List<Integer>.class);
-
-        testStr.add(flight);
-        testStr.addAll(addons);
-
 
     }
 

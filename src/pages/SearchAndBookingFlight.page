@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
 
 <head>
+	<!-- test change -->
 </head>
 
 <body>
@@ -19,10 +20,7 @@
 			<apex:param name="Plaid" assignTo="{!Plaid}" value="" />
 			<apex:param name="Pillow" assignTo="{!Pillow}" value="" />
 		</apex:actionFunction>
-		<apex:actionFunction name="doBooking" action="{!doBooking}" oncomplete="showResultBooking({!bookedFlight})" reRender="tables">
-			<apex:param name="flightBook" assignTo="{!flightBook}" value="" />
-			<apex:param name="addonsBook" assignTo="{!addonsBook}" value="" />
-		</apex:actionFunction>	
+		<apex:actionFunction name="doBooking" action="{!doBooking}" />	
 	</apex:form>
 
 	<div class="slds-scope">
@@ -116,8 +114,8 @@
 			</div>
 
 			<apex:form id="tables">
-
-				<apex:outputText value="{!testStr}" />
+				
+				<apex:pageMessages />
 
 				<div class="slds-table_edit_container slds-is-relative slds-p-top_medium slds-p-bottom_medium" hidden="true" id="flightsTable">
 					<legend class="slds-form-element__label slds-form-element__legend slds-text-title_caps">Flights</legend>
@@ -147,6 +145,7 @@
 							</tr>
 						</thead>
 						<tbody id="tableFlights">
+							
 						</tbody>
 					</table>
 				</div>
@@ -225,6 +224,10 @@
 			doSearch(CityFrom, CityTo, DateFrom, DateTo, Food, Plaid, Pillow);
 		};
 
+		function bookingButton(){
+			
+		};
+
 		function showTables(allPrices) {		
 
 			document.getElementById('bookingButton').setAttribute('disabled', 'true');
@@ -246,10 +249,10 @@
 
 				insertStr += '<tr class="slds-hint-parent">' +
 								'<td>' +
-									'<span class="slds-radio">' +
-										'<input type="radio" id="flight-' + i + '" name="flightsOptions"/>' +
-										'<label class="slds-radio__label" for="flight-' + i + '">' +
-											'<span class="slds-radio_faux"></span>' +
+									'<span class="slds-checkbox">' +
+										'<input type="checkbox" id="flight-' + i + '"/>' +
+										'<label class="slds-checkbox__label" for="flight-' + i + '" id="check-button-label-01">' +
+											'<span class="slds-checkbox_faux"></span>' +
 										'</label>' +
 									'</span>' +
 								'</td>' +
@@ -302,39 +305,6 @@
 			tableAddons.innerHTML = insertStr;
 
 		};
-
-		function bookingButton(){
-
-			let tableFlights = document.getElementById('tableFlights');
-			let tableAddons = document.getElementById('tableAddons');
-			let flightBook;
-			let addonsBook = []; 
-
-			for (let i = 0; i < tableFlights.childNodes.length; i++) {
-				if (document.getElementById('flight-' + i).checked) {
-					flightBook = i;
-				}
-			}
-
-			for (let i = 0; i < tableAddons.childNodes.length; i++) {
-				if (document.getElementById('addon-' + i).checked) {
-					addonsBook.push(i);
-				}
-			}
-
-			flightBook = JSON.stringify(flightBook);
-			addonsBook = JSON.stringify(addonsBook);
-
-			console.log(flightBook);
-			console.log(addonsBook);
-
-			doBooking(flightBook, addonsBook);
-			
-		};
-
-		function showResultBooking(bookedFlight) {
-
-		}
 
 	</script>
 
