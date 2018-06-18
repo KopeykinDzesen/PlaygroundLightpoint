@@ -51,7 +51,7 @@
                 "id": "ApexClass.SearchFlightController",
                 "lastModifiedById": "0057F000003ctR9QAI",
                 "lastModifiedByName": "Dzesen Kopeykin",
-                "lastModifiedDate": "2018-06-18T11:12:31.000Z",
+                "lastModifiedDate": "2018-06-18T13:54:16.000Z",
                 "manageableState": "unmanaged",
                 "type": "ApexClass",
                 "leaf": true,
@@ -140,7 +140,7 @@
                 "id": "ApexPage.SearchAndBookingFlight",
                 "lastModifiedById": "0057F000003ctR9QAI",
                 "lastModifiedByName": "Dzesen Kopeykin",
-                "lastModifiedDate": "2018-06-17T21:10:54.000Z",
+                "lastModifiedDate": "2018-06-18T13:26:40.000Z",
                 "manageableState": "unmanaged",
                 "type": "ApexPage",
                 "leaf": true,
@@ -175,7 +175,30 @@
         "cls": "folder",
         "select": false,
         "expanded": false,
-        "children": []
+        "children": [
+            {
+                "createdById": "0057F000003ctR9QAI",
+                "createdByName": "Dzesen Kopeykin",
+                "createdDate": "2018-06-18T14:30:30.000Z",
+                "fileName": "triggers/BookingFlightTrigger.trigger",
+                "fullName": "BookingFlightTrigger",
+                "id": "ApexTrigger.BookingFlightTrigger",
+                "lastModifiedById": "0057F000003ctR9QAI",
+                "lastModifiedByName": "Dzesen Kopeykin",
+                "lastModifiedDate": "2018-06-18T19:05:08.000Z",
+                "manageableState": "unmanaged",
+                "type": "ApexTrigger",
+                "leaf": true,
+                "title": "BookingFlightTrigger",
+                "checked": false,
+                "text": "BookingFlightTrigger",
+                "cls": "",
+                "level": 2,
+                "isFolder": false,
+                "children": [],
+                "select": false
+            }
+        ]
     },
     {
         "id": "StaticResource",

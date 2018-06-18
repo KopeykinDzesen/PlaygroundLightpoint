@@ -13,5 +13,9 @@
 		<members>SearchAndBookingFlight</members>
 		<name>ApexPage</name>
 	</types>
+	<types>
+		<members>BookingFlightTrigger</members>
+		<name>ApexTrigger</name>
+	</types>
 	<version>42.0</version>
 </Package>

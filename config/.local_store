@@ -96,5 +96,19 @@
         "manageableState": "unmanaged",
         "type": "ApexClass",
         "mmState": "clean"
+    },
+    "BookingFlightTrigger.trigger": {
+        "createdById": "0057F000003ctR9QAI",
+        "createdByName": "Dzesen Kopeykin",
+        "createdDate": "2018-06-18T14:30:30.000Z",
+        "fileName": "unpackaged/triggers/BookingFlightTrigger.trigger",
+        "fullName": "BookingFlightTrigger",
+        "id": "01q7F000001FgPrQAK",
+        "lastModifiedById": "0057F000003ctR9QAI",
+        "lastModifiedByName": "Dzesen Kopeykin",
+        "lastModifiedDate": "2018-06-18T19:31:21.000Z",
+        "manageableState": "unmanaged",
+        "type": "ApexTrigger",
+        "mmState": "clean"
     }
 }
