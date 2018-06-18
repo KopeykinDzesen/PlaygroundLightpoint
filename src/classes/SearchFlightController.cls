@@ -139,13 +139,13 @@ public class SearchFlightController {
 
         insert newBookedFlight;
 
-        //List<Addon__c> addonsWithBf = [SELECT Id, (SELECT Id FROM Booked_Flights__r) FROM Addon__c WHERE Id IN :addons]; 
+        List<BfAndAddonAssignment__c> bfAndAddonList = new List<BfAndAddonAssignment__c>();
 
-        //for (Addon__c ad : addonsWithBf) {
-        //    ad.Booked_Flights__r.add(newBookedFlight);
-        //}
+        for (Addon__c ad : addons) {
+            bfAndAddonList.add(new BfAndAddonAssignment__c(BookedFlight__c = newBookedFlight.Id, Addon__c = ad.Id));
+        }
 
-        //update addons;
+        insert bfAndAddonList;
 
     }
 
