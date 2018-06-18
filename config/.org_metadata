@@ -51,7 +51,7 @@
                 "id": "ApexClass.SearchFlightController",
                 "lastModifiedById": "0057F000003ctR9QAI",
                 "lastModifiedByName": "Dzesen Kopeykin",
-                "lastModifiedDate": "2018-06-14T22:26:33.000Z",
+                "lastModifiedDate": "2018-06-18T11:12:31.000Z",
                 "manageableState": "unmanaged",
                 "type": "ApexClass",
                 "leaf": true,
@@ -140,7 +140,7 @@
                 "id": "ApexPage.SearchAndBookingFlight",
                 "lastModifiedById": "0057F000003ctR9QAI",
                 "lastModifiedByName": "Dzesen Kopeykin",
-                "lastModifiedDate": "2018-06-14T22:04:52.000Z",
+                "lastModifiedDate": "2018-06-17T21:10:54.000Z",
                 "manageableState": "unmanaged",
                 "type": "ApexPage",
                 "leaf": true,
@@ -197,6 +197,29 @@
         "cls": "folder",
         "select": false,
         "expanded": false,
-        "children": []
+        "children": [
+            {
+                "createdById": "0057F000003ctR9QAI",
+                "createdByName": "Dzesen Kopeykin",
+                "createdDate": "2018-06-15T06:40:49.000Z",
+                "fileName": "staticresources/jQuery.resource",
+                "fullName": "jQuery",
+                "id": "StaticResource.jQuery",
+                "lastModifiedById": "0057F000003ctR9QAI",
+                "lastModifiedByName": "Dzesen Kopeykin",
+                "lastModifiedDate": "2018-06-15T06:40:49.000Z",
+                "manageableState": "unmanaged",
+                "type": "StaticResource",
+                "leaf": true,
+                "title": "jQuery",
+                "checked": false,
+                "text": "jQuery",
+                "cls": "",
+                "level": 2,
+                "isFolder": false,
+                "children": [],
+                "select": false
+            }
+        ]
     }
 ]
