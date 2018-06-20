@@ -4,6 +4,7 @@
 		<members>TestClass</members>
 		<members>SearchFlightController</members>
 		<members>BookingFlightController</members>
+		<members>CreatingWizardController</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -11,10 +12,14 @@
 		<members>BookingFlight</members>
 		<members>HelloJQuery</members>
 		<members>SearchAndBookingFlight</members>
+		<members>CreatingWizardStep1</members>
+		<members>CreatingWizardStep2</members>
+		<members>CreatingWizardStep3</members>
 		<name>ApexPage</name>
 	</types>
 	<types>
 		<members>BookingFlightTrigger</members>
+		<members>BeforCreateFlightsTrigger</members>
 		<name>ApexTrigger</name>
 	</types>
 	<version>42.0</version>
