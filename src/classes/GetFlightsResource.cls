@@ -37,7 +37,7 @@ global with sharing class GetFlightsResource  {
         }
 
         Map<Id, Flight__c> mapOfFlights = new Map<Id, Flight__c>([SELECT TimeOfFlight__c, RemainingNumberOfSeats__c, 
-            Number__c FROM Flight__c WHERE Id IN :listIdOfFlights]);
+            Number__c, CityFrom__c, CityTo__c FROM Flight__c WHERE Id IN :listIdOfFlights]);
 
         for (Price__c pr : listOfPrices) {
 
@@ -60,6 +60,8 @@ global with sharing class GetFlightsResource  {
             resultMap.put('number', f.Number__c);
             resultMap.put('date', dateOfFlight);
             resultMap.put('price', pr.Value__c);
+            resultMap.put('city_from', f.CityFrom__c);
+            resultMap.put('city_to', f.CityTo__c);
             resultMap.put('status', 'ACCESS');
             resultMap.put('message', 'Flight booked accessfully!');
             resultStr = JSON.serialize(resultMap);
