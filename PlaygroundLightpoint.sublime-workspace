@@ -4,24 +4,96 @@
 		"selected_items":
 		[
 			[
+				"fli",
+				"flightWithAttrList"
+			],
+			[
+				"Fligth",
+				"Flight__c"
+			],
+			[
+				"Sea",
+				"SeatAmount__c"
+			],
+			[
+				"Flight",
+				"Flight__c"
+			],
+			[
+				"Fligh",
+				"Flight__c"
+			],
+			[
+				"pr",
+				"pricesFlightsList"
+			],
+			[
 				"pri",
-				"pricesAddonsList"
+				"pricesFlightsList"
+			],
+			[
+				"re",
+				"resalt-message"
+			],
+			[
+				"out",
+				"apex:outputText"
+			],
+			[
+				"new",
+				"newBookedFlight\t(SearchFlightController.cls)"
+			],
+			[
+				"bf",
+				"bfAndAddonList"
+			],
+			[
+				"B",
+				"Booked_Flights__r"
+			],
+			[
+				"a",
+				"addons"
+			],
+			[
+				"add",
+				"addons"
+			],
+			[
+				"all",
+				"allPricesBook"
+			],
+			[
+				"Price",
+				"Price__c"
 			],
 			[
 				"fl",
-				"flight"
+				"flightBook"
 			],
 			[
 				"Fli",
-				"Flight\t(SearchAndBookingFlight.page)"
+				"Flight__c"
+			],
+			[
+				"to",
+				"totalPrice"
+			],
+			[
+				"Ad",
+				"Addon__c"
+			],
+			[
+				"De",
+				"Decimal\t[Standard Apex Class]"
+			],
+			[
+				"ad",
+				"addonsNumbers"
 			],
 			[
 				"Boo",
 				"BookedFlight__c"
-			],
-			[
-				"add",
-				"addonsBook"
 			],
 			[
 				"te",
@@ -38,14 +110,6 @@
 			[
 				"Pr",
 				"pricesFlightsList"
-			],
-			[
-				"fli",
-				"flightBook"
-			],
-			[
-				"ad",
-				"addons"
 			],
 			[
 				"addo",
@@ -112,14 +176,6 @@
 				"Addons"
 			],
 			[
-				"all",
-				"allPricesMap"
-			],
-			[
-				"pr",
-				"pricesAddonsList"
-			],
-			[
 				"al",
 				"allPricesList"
 			],
@@ -177,10 +233,6 @@
 			],
 			[
 				"Addo",
-				"Addon__c"
-			],
-			[
-				"Ad",
 				"Addon__c"
 			],
 			[
@@ -264,14 +316,6 @@
 				"apex:pageMessages"
 			],
 			[
-				"re",
-				"reRender\t(Object)"
-			],
-			[
-				"out",
-				"apex:outputText"
-			],
-			[
 				"me",
 				"apex:pageMessages"
 			],
@@ -340,14 +384,6 @@
 				"dateTo"
 			],
 			[
-				"B",
-				"BookingFlight__c"
-			],
-			[
-				"Sea",
-				"SearchFlightController"
-			],
-			[
 				"page",
 				"apex:pageBlockSectionItem"
 			],
@@ -397,13 +433,19 @@
 			}
 		},
 		{
-			"contents": "public class SearchFlightController {\n\n    public String CityFrom { get; set; }\n    public String CityTo { get; set; }\n    public String DateFrom { get; set; }\n    public String DateTo { get; set; }\n    public String Food { get; set; }\n    public String Plaid { get; set; }\n    public String Pillow { get; set; }\n\n    public String allPrices { get; set; }\n\n    private List<Price__c> pricesFlightsList;\n    private List<Price__c> pricesAddonsList;\n\n    public String flightBook { get; set; }\n    public String addonsBook { get; set; }\n    public String bookedFlight { get; set; }\n\n    public List<Integer> testStr { get; set; }\n\n    public SearchFlightController() {\n        this.CityFrom = '';\n        this.CityTo = '';\n        this.DateFrom = '';\n        this.DateTo = '';\n        this.Food = '';\n        this.Plaid = '';\n        this.Pillow = '';\n        this.allPrices = '';\n        this.pricesFlightsList = new List<Price__c>();\n        this.pricesAddonsList = new List<Price__c>();\n        this.flightBook = '';\n        this.addonsBook = '';\n        this.bookedFlight = '';\n\n        this.testStr = new List<Integer>();\n    }\n\n    public void doSearch() {\n\n        allPrices = '';\n        pricesFlightsList = new List<Price__c>();\n        pricesAddonsList = new List<Price__c>();\n        Map<String, List<Price__c>> allPricesMap = new Map<String, List<Price__c>>();\n\n        ApexPages.getMessages().clear();\n\n        Date DDateFrom = Date.valueOf(DateFrom);\n        Date DDateTo = Date.valueOf(DateTo);\n\n        if (DDateFrom > DDateTo) {\n            ApexPages.addMessage(\n                new ApexPages.Message(\n                ApexPages.Severity.ERROR,\n                'Date From can not be greater than Date To')\n                );\n            return;\n        }\n\n        String querySelectFlights = 'SELECT Value__c, Flight__r.Number__c,  Flight__r.CityFrom__c, Flight__r.CityTo__c, ' + \n            ' Flight__r.TimeOfFlight__c, Flight__r.Type__c, Flight__r.SeatAmount__c' + \n            ' FROM Price__c ' + \n            ' WHERE Flight__r.CityFrom__c = :CityFrom ' +   \n            ' AND Flight__r.CityTo__c = :CityTo ' +\n            ' AND ( ' + \n            ' NOT ( (DateFrom__c >= :DDateTo) ' +\n            ' OR    (DateTo__c <= :DDateFrom) ) )' + \n            ' ORDER BY Value__c DESC ';\n\n        pricesFlightsList = (List<Price__c>)Database.query(querySelectFlights);\n\n        if (pricesFlightsList.size() == 0) {\n            ApexPages.addMessage(\n                new ApexPages.Message(\n                ApexPages.Severity.ERROR,\n                'Flights were not found')\n                );\n            return;\n        }\n\n        String condition = '';\n        if (Food != '') {\n            if (Plaid != '') {\n                if (Pillow != '') {\n                    condition = ' (Addon__r.Name = :Food OR Addon__r.Name = :Plaid OR Addon__r.Name = :Pillow ) AND ';\n                } else {\n                    condition = ' (Addon__r.Name = :Food OR Addon__r.Name = :Plaid) AND ';\n                }\n            } else if (Pillow != '') {\n                condition = ' (Addon__r.Name = :Food OR Addon__r.Name = :Pillow) AND ';\n            } else {      \n                condition = ' Addon__r.Name = :Food AND ';\n            }\n        } else if (Plaid != '') {\n            if (Pillow != '') {\n                condition = ' (Addon__r.Name = :Plaid OR Addon__r.Name = :Pillow) AND ';\n            } else {\n                condition = ' Addon__r.Name = :Plaid AND ';\n            }\n        } else if (Pillow != '') {\n            condition = ' Addon__r.Name = :Pillow AND ';\n        }\n\n        String querySelectAddons = 'SELECT Value__c, Addon__r.Name ' +\n            ' FROM Price__c ' +\n            ' WHERE ' + condition +\n            ' ( NOT ( (DateFrom__c >= :DDateTo) ' +\n            ' OR    (DateTo__c <= :DDateFrom) ) )' + \n            ' ORDER BY Value__c DESC ';\n\n        pricesAddonsList = (List<Price__c>)Database.query(querySelectAddons);\n        \n        allPricesMap = new Map<String, List<Price__c>>{'Flights' => pricesFlightsList, 'Addons' => pricesAddonsList};\n        allPrices = JSON.serialize(allPricesMap);\n\n    }\n\n    public void doBooking() {\n\n        Integer flight = (Integer)System.JSON.deserialize(flightBook, Integer.class);\n        List<Integer> addons = (List<Integer>)System.JSON.deserialize(addonsBook, List<Integer>.class);\n\n        BookedFlight__c newBookedFlight = new BookedFlight__c(Flight__c = pricesFlightsList[flight],\n                                                              Addon__c = pricesAddonsList)\n\n    }\n\n}",
 			"file": "src/classes/SearchFlightController.cls",
-			"file_size": 4431,
-			"file_write_time": 131737440632978007,
 			"settings":
 			{
-				"buffer_size": 4561,
+				"buffer_size": 5483,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/triggers/BookingFlightTrigger.trigger",
+			"settings":
+			{
+				"buffer_size": 1563,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -467,7 +509,8 @@
 		"/home/dzesen/SublimeTextWorkspace/PlaygroundLightpoint",
 		"/home/dzesen/SublimeTextWorkspace/PlaygroundLightpoint/src",
 		"/home/dzesen/SublimeTextWorkspace/PlaygroundLightpoint/src/classes",
-		"/home/dzesen/SublimeTextWorkspace/PlaygroundLightpoint/src/pages"
+		"/home/dzesen/SublimeTextWorkspace/PlaygroundLightpoint/src/pages",
+		"/home/dzesen/SublimeTextWorkspace/PlaygroundLightpoint/src/triggers"
 	],
 	"file_history":
 	[
@@ -498,6 +541,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"from",
 			"Boolean",
 			"insertStr",
 			"pricesAddonsList",
@@ -531,7 +575,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -547,19 +591,20 @@
 						"selection":
 						[
 							[
-								1053,
-								1053
+								5307,
+								5307
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/MavensMate/sublime/lang/Visualforce.sublime-syntax"
+							"syntax": "Packages/MavensMate/sublime/lang/Visualforce.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6130.0,
+						"translation.y": 5804.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -568,15 +613,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4561,
+						"buffer_size": 5483,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4550,
-								4550
+								5483,
+								5483
 							]
 						],
 						"settings":
@@ -586,7 +631,36 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2020.0,
+						"translation.y": 2700.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/triggers/BookingFlightTrigger.trigger",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1563,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								988,
+								988
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -628,7 +702,7 @@
 	"menu_visible": true,
 	"output.MavensMate-OutputPanel":
 	{
-		"height": 290.0
+		"height": 327.0
 	},
 	"output.find_results":
 	{

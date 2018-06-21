@@ -1,0 +1,30 @@
+<apex:page controller="CreatingWizardController">
+
+	<apex:sectionHeader subtitle="New Flight with Price" title="Step 1 of 2"/>
+	<apex:pageMessages />
+    	<apex:form>
+
+      		<apex:pageBlock>
+       			<apex:pageBlockButtons>
+          			<apex:commandButton action="{!step2}" value="Next"/>
+          			<apex:commandButton action="{!saveFlight}" value="Save"/>
+        		</apex:pageBlockButtons>
+				<apex:pageBlockSection title="Flight fields">
+        			<apex:inputField value="{!newFlight.Number__c}" required="false"/>
+        			<apex:inputField value="{!newFlight.FlightCompany__c}" required="false"/>
+        			<apex:inputField value="{!newFlight.CityFrom__c}" required="false"/>
+        			<apex:inputField value="{!newFlight.TimeOfFlight__c}" required="false"/>
+        			<apex:inputField value="{!newFlight.CityTo__c}" required="false"/>
+        			<apex:inputField value="{!newFlight.TotalNumberOfSeats__c}" required="false"/>
+        			<apex:inputField value="{!newFlight.Type__c}" required="false"/>
+      			</apex:pageBlockSection>
+      			<apex:pageBlockSection title="Price fields (No Required)">
+					<apex:inputField value="{!newPriceToFlight.Value__c}" required="false"/>
+        			<apex:inputField value="{!newPriceToFlight.DateFrom__c}" required="false"/>
+        			<apex:inputField value="{!newPriceToFlight.DateTo__c}" required="false"/>
+      			</apex:pageBlockSection>
+    		</apex:pageBlock>
+
+  		</apex:form>
+
+</apex:page>

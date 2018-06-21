@@ -1,0 +1,25 @@
+<apex:page controller="CreatingWizardController">
+
+	<apex:sectionHeader subtitle="New Addon with Price" title="Step 2 of 2"/>
+	<apex:pageMessages />
+    	<apex:form>
+
+      		<apex:pageBlock>
+       			<apex:pageBlockButtons>
+          			<apex:commandButton action="{!step1}" value="Previous"/>
+          			<apex:commandButton action="{!saveAddon}" value="Save"/>
+        		</apex:pageBlockButtons>
+				<apex:pageBlockSection title="Addon fields">
+        			<apex:inputField value="{!newAddon.RecordType.Name}" label="Record Type" required="false"/>
+        			<apex:inputField value="{!newAddon.Name}" required="false"/>
+      			</apex:pageBlockSection>
+      			<apex:pageBlockSection title="Price fields (No Required)">
+					<apex:inputField value="{!newPriceToFlight.Value__c}" required="false"/>
+        			<apex:inputField value="{!newPriceToFlight.DateFrom__c}" required="false"/>
+        			<apex:inputField value="{!newPriceToFlight.DateTo__c}" required="false"/>
+      			</apex:pageBlockSection>
+    		</apex:pageBlock>
+
+  		</apex:form>
+
+</apex:page>
