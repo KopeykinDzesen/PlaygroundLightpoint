@@ -5,6 +5,7 @@
 		<members>SearchFlightController</members>
 		<members>BookingFlightController</members>
 		<members>CreatingWizardController</members>
+		<members>GetFlightsResource</members>
 		<name>ApexClass</name>
 	</types>
 	<types>

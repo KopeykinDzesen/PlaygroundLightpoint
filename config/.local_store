@@ -64,7 +64,7 @@
         "id": "01p7F00000V4DQOQA3",
         "lastModifiedById": "0057F000003ctR9QAI",
         "lastModifiedByName": "Dzesen Kopeykin",
-        "lastModifiedDate": "2018-06-18T13:54:16.000Z",
+        "lastModifiedDate": "2018-06-21T12:49:50.000Z",
         "manageableState": "unmanaged",
         "type": "ApexClass",
         "mmState": "clean"
@@ -78,7 +78,7 @@
         "id": "0667F000008qk6yQAA",
         "lastModifiedById": "0057F000003ctR9QAI",
         "lastModifiedByName": "Dzesen Kopeykin",
-        "lastModifiedDate": "2018-06-18T13:26:40.000Z",
+        "lastModifiedDate": "2018-06-21T12:48:32.000Z",
         "manageableState": "unmanaged",
         "type": "ApexPage",
         "mmState": "clean"
@@ -179,6 +179,20 @@
         "lastModifiedDate": "2018-06-20T20:48:32.000Z",
         "manageableState": "unmanaged",
         "type": "ApexTrigger",
+        "mmState": "clean"
+    },
+    "GetFlightsResource.cls": {
+        "createdById": "0057F000003ctR9QAI",
+        "createdByName": "Dzesen Kopeykin",
+        "createdDate": "2018-06-21T08:53:53.000Z",
+        "fileName": "unpackaged/classes/GetFlightsResource.cls",
+        "fullName": "GetFlightsResource",
+        "id": "01p7F00000V4T93QAF",
+        "lastModifiedById": "0057F000003ctR9QAI",
+        "lastModifiedByName": "Dzesen Kopeykin",
+        "lastModifiedDate": "2018-06-21T16:11:05.000Z",
+        "manageableState": "unmanaged",
+        "type": "ApexClass",
         "mmState": "clean"
     }
 }
