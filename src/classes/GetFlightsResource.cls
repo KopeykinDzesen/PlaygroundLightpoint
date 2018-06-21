@@ -21,6 +21,13 @@ global with sharing class GetFlightsResource  {
         Date dateFrom = Date.valueOf(param.get('dateFrom').toString());
         Date dateTo = Date.valueOf(param.get('dateTo').toString());
 
+        if (dateFrom > dateTo) {
+            resultMap.put('message', 'DateFrom greater than DateTo!!!');
+            resultMap.put('status', 'ERROR');
+            resultStr = JSON.serialize(resultMap);
+            return resultStr;
+        }
+
         List<Price__c> listOfPrices = [SELECT Flight__c, Value__c FROM Price__c 
             WHERE NOT(DateFrom__c >= :dateTo OR DateTo__c <= :dateFrom) ORDER BY Value__c DESC LIMIT 1000];
 
@@ -60,7 +67,14 @@ global with sharing class GetFlightsResource  {
             return resultStr;
         }
 
-        return resultStr;
+        if (resultStr == '') {
+            resultMap.put('message', 'Flights are not found!');
+            resultMap.put('status', 'ERROR');
+            resultStr = JSON.serialize(resultMap);
+            return resultStr;
+        } else {
+            return resultStr;
+        }
 
     }
 
