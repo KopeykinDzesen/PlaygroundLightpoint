@@ -427,7 +427,7 @@
 			"file": "src/pages/SearchAndBookingFlight.page",
 			"settings":
 			{
-				"buffer_size": 12357,
+				"buffer_size": 12643,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -436,7 +436,7 @@
 			"file": "src/classes/SearchFlightController.cls",
 			"settings":
 			{
-				"buffer_size": 5483,
+				"buffer_size": 6093,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -445,7 +445,7 @@
 			"file": "src/triggers/BookingFlightTrigger.trigger",
 			"settings":
 			{
-				"buffer_size": 1563,
+				"buffer_size": 1448,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -584,15 +584,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12357,
+						"buffer_size": 12643,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5307,
-								5307
+								0,
+								0
 							]
 						],
 						"settings":
@@ -613,15 +613,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5483,
+						"buffer_size": 6093,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5483,
-								5483
+								0,
+								0
 							]
 						],
 						"settings":
@@ -643,15 +643,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1563,
+						"buffer_size": 1448,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								988,
-								988
+								0,
+								0
 							]
 						],
 						"settings":
