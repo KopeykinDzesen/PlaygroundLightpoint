@@ -55,14 +55,13 @@ public class SearchFlightController {
         if (DDateFrom > DDateTo) {
             ApexPages.addMessage(
                 new ApexPages.Message(
-                ApexPages.Severity.ERROR,
-                'Date From can not be greater than Date To')
-                );
+                    ApexPages.Severity.ERROR,
+                    'Date From can not be greater than Date To'));
             return;
         }
 
         String querySelectFlights = 'SELECT Value__c, Flight__r.Number__c,  Flight__r.CityFrom__c, Flight__r.CityTo__c, ' + 
-            ' Flight__r.TimeOfFlight__c, Flight__r.Type__c, Flight__r.SeatAmount__c' + 
+            ' Flight__r.TimeOfFlight__c, Flight__r.Type__c, Flight__r.RemainingNumberOfSeats__c' + 
             ' FROM Price__c ' + 
             ' WHERE Flight__r.CityFrom__c = :CityFrom ' +   
             ' AND Flight__r.CityTo__c = :CityTo ' +
