@@ -117,13 +117,13 @@
 
 			<apex:form id="tables">
 
-				<div id="resalt-message" hidden="true">
+				<!-- <div id="resalt-message" hidden="true">
 					<apex:outputText>
 						Booking success: <apex:outputLink value="/{!newBookedFlight.Id}">{!newBookedFlight.Flight__c} --- {!newBookedFlight.TotalPrice__c}</apex:outputLink>.
 					</apex:outputText>
 				</div>
 				DateFrom: <apex:outputText value="{!DateFrom}" /><br />
-				DateTo: <apex:outputText value="{!DateTo}" />
+				DateTo: <apex:outputText value="{!DateTo}" /> -->
 
 				<div class="slds-table_edit_container slds-is-relative slds-p-top_medium slds-p-bottom_medium" hidden="true" id="flightsTable">
 					<legend class="slds-form-element__label slds-form-element__legend slds-text-title_caps">Flights</legend>

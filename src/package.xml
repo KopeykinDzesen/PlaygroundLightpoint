@@ -6,6 +6,7 @@
 		<members>BookingFlightController</members>
 		<members>CreatingWizardController</members>
 		<members>GetFlightsResource</members>
+		<members>TestBookingFlightTrigger</members>
 		<name>ApexClass</name>
 	</types>
 	<types>

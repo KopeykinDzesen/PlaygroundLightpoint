@@ -12,7 +12,7 @@ trigger BookingFlightTrigger on BookedFlight__c (before insert) {
 
 	List<Flight__c> flightsToUpdate = new List<Flight__c>();
 	for (BookedFlight__c bf : Trigger.New) {
-		if (flightById.get(bf.Flight__c).RemainingNumberOfSeats__c == 0) {
+		if (flightById.get(bf.Flight__c).RemainingNumberOfSeats__c <= 0) {
 			System.debug('all places are booked');
 			bf.AddError('All places ere booked!');
 		} else {

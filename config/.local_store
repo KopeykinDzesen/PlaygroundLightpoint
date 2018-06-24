@@ -78,7 +78,7 @@
         "id": "0667F000008qk6yQAA",
         "lastModifiedById": "0057F000003ctR9QAI",
         "lastModifiedByName": "Dzesen Kopeykin",
-        "lastModifiedDate": "2018-06-21T12:48:32.000Z",
+        "lastModifiedDate": "2018-06-22T07:19:12.000Z",
         "manageableState": "unmanaged",
         "type": "ApexPage",
         "mmState": "clean"
@@ -106,7 +106,7 @@
         "id": "01q7F000001FgPrQAK",
         "lastModifiedById": "0057F000003ctR9QAI",
         "lastModifiedByName": "Dzesen Kopeykin",
-        "lastModifiedDate": "2018-06-20T21:28:42.000Z",
+        "lastModifiedDate": "2018-06-24T14:04:44.000Z",
         "manageableState": "unmanaged",
         "type": "ApexTrigger",
         "mmState": "clean"
@@ -191,6 +191,20 @@
         "lastModifiedById": "0057F000003ctR9QAI",
         "lastModifiedByName": "Dzesen Kopeykin",
         "lastModifiedDate": "2018-06-21T16:28:39.000Z",
+        "manageableState": "unmanaged",
+        "type": "ApexClass",
+        "mmState": "clean"
+    },
+    "TestBookingFlightTrigger.cls": {
+        "createdById": "0057F000003ctR9QAI",
+        "createdByName": "Dzesen Kopeykin",
+        "createdDate": "2018-06-24T13:42:41.000Z",
+        "fileName": "unpackaged/classes/TestBookingFlightTrigger.cls",
+        "fullName": "TestBookingFlightTrigger",
+        "id": "01p7F00000V4WikQAF",
+        "lastModifiedById": "0057F000003ctR9QAI",
+        "lastModifiedByName": "Dzesen Kopeykin",
+        "lastModifiedDate": "2018-06-24T16:22:21.000Z",
         "manageableState": "unmanaged",
         "type": "ApexClass",
         "mmState": "clean"
