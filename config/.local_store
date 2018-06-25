@@ -64,7 +64,7 @@
         "id": "01p7F00000V4DQOQA3",
         "lastModifiedById": "0057F000003ctR9QAI",
         "lastModifiedByName": "Dzesen Kopeykin",
-        "lastModifiedDate": "2018-06-21T12:49:50.000Z",
+        "lastModifiedDate": "2018-06-25T06:19:17.000Z",
         "manageableState": "unmanaged",
         "type": "ApexClass",
         "mmState": "clean"
@@ -205,6 +205,20 @@
         "lastModifiedById": "0057F000003ctR9QAI",
         "lastModifiedByName": "Dzesen Kopeykin",
         "lastModifiedDate": "2018-06-24T16:24:53.000Z",
+        "manageableState": "unmanaged",
+        "type": "ApexClass",
+        "mmState": "clean"
+    },
+    "SearchFlightControllerTest.cls": {
+        "createdById": "0057F000003ctR9QAI",
+        "createdByName": "Dzesen Kopeykin",
+        "createdDate": "2018-06-24T16:27:16.000Z",
+        "fileName": "unpackaged/classes/SearchFlightControllerTest.cls",
+        "fullName": "SearchFlightControllerTest",
+        "id": "01p7F00000V4WpCQAV",
+        "lastModifiedById": "0057F000003ctR9QAI",
+        "lastModifiedByName": "Dzesen Kopeykin",
+        "lastModifiedDate": "2018-06-25T06:31:50.000Z",
         "manageableState": "unmanaged",
         "type": "ApexClass",
         "mmState": "clean"

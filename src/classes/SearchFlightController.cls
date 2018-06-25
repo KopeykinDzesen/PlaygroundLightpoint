@@ -2,8 +2,20 @@ public class SearchFlightController {
 
     public String CityFrom { get; set; }
     public String CityTo { get; set; }
-    public String DateFrom { get; set; }
-    public String DateTo { get; set; }
+    public String DateFrom;
+    public String getDateFrom() {
+        return this.DateFrom;
+    }
+    public void setDateFrom(String s) {
+        this.DateFrom = s;
+    }
+    public String DateTo;
+     public String getDateTo() {
+        return this.DateTo;
+    }
+    public void setDateTo(String s) {
+        this.DateTo = s;
+    }
     public String Food { get; set; }
     public String Plaid { get; set; }
     public String Pillow { get; set; }
