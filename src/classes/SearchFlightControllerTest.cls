@@ -1,5 +1,118 @@
 @isTest
 private class SearchFlightControllerTest {
+
+	@isTest static void testGetQuerySelectAddons() {
+		
+		String Food = 'testFood';
+		String Plaid = 'testPlaid';
+		String Pillow = 'testPillow';
+
+		Test.startTest();
+
+		PageReference pageRef = Page.SearchAndBookingFlight;
+		Test.setCurrentPage(pageRef);
+
+		SearchFlightController sfController = new SearchFlightController();
+
+		// without addons
+		sfController.setFood('');
+		sfController.setPlaid('');
+		sfController.setPillow('');
+		String querySelectAddons = sfController.getQuerySelectAddons();
+		System.assertEquals(querySelectAddons, 'SELECT Value__c, Addon__r.Name ' +
+            ' FROM Price__c ' +
+            ' WHERE ' +
+            ' ( NOT ( (DateFrom__c >= :DDateTo) ' +
+            ' OR    (DateTo__c <= :DDateFrom) ) ) ' + 
+            ' ORDER BY Value__c DESC ');
+
+		// with all addons
+		sfController.setFood(Food);
+		sfController.setPlaid(Plaid);
+		sfController.setPillow(Pillow);
+		querySelectAddons = sfController.getQuerySelectAddons();
+		System.assertEquals(querySelectAddons, 'SELECT Value__c, Addon__r.Name ' +
+            ' FROM Price__c ' +
+            ' WHERE ' + ' (Addon__r.Name = :Food OR Addon__r.Name = :Plaid OR Addon__r.Name = :Pillow ) AND ' +
+            ' ( NOT ( (DateFrom__c >= :DDateTo) ' +
+            ' OR    (DateTo__c <= :DDateFrom) ) ) ' + 
+            ' ORDER BY Value__c DESC ');
+
+		// with food addon
+		sfController.setFood(Food);
+		sfController.setPlaid('');
+		sfController.setPillow('');
+		querySelectAddons = sfController.getQuerySelectAddons();
+		System.assertEquals(querySelectAddons, 'SELECT Value__c, Addon__r.Name ' +
+            ' FROM Price__c ' +
+            ' WHERE ' + ' Addon__r.Name = :Food AND ' +
+            ' ( NOT ( (DateFrom__c >= :DDateTo) ' +
+            ' OR    (DateTo__c <= :DDateFrom) ) ) ' + 
+            ' ORDER BY Value__c DESC ');
+
+		// with plaid addon
+		sfController.setFood('');
+		sfController.setPlaid(Plaid);
+		sfController.setPillow('');
+		querySelectAddons = sfController.getQuerySelectAddons();
+		System.assertEquals(querySelectAddons, 'SELECT Value__c, Addon__r.Name ' +
+            ' FROM Price__c ' +
+            ' WHERE ' + ' Addon__r.Name = :Plaid AND ' +
+            ' ( NOT ( (DateFrom__c >= :DDateTo) ' +
+            ' OR    (DateTo__c <= :DDateFrom) ) ) ' + 
+            ' ORDER BY Value__c DESC ');
+
+		// with pillow addon
+		sfController.setFood('');
+		sfController.setPlaid('');
+		sfController.setPillow(Pillow);
+		querySelectAddons = sfController.getQuerySelectAddons();
+		System.assertEquals(querySelectAddons, 'SELECT Value__c, Addon__r.Name ' +
+            ' FROM Price__c ' +
+            ' WHERE ' + ' Addon__r.Name = :Pillow AND ' +
+            ' ( NOT ( (DateFrom__c >= :DDateTo) ' +
+            ' OR    (DateTo__c <= :DDateFrom) ) ) ' + 
+            ' ORDER BY Value__c DESC ');
+
+		// with food and plaid addons
+		sfController.setFood(Food);
+		sfController.setPlaid(Plaid);
+		sfController.setPillow('');
+		querySelectAddons = sfController.getQuerySelectAddons();
+		System.assertEquals(querySelectAddons, 'SELECT Value__c, Addon__r.Name ' +
+            ' FROM Price__c ' +
+            ' WHERE ' + ' (Addon__r.Name = :Food OR Addon__r.Name = :Plaid) AND ' +
+            ' ( NOT ( (DateFrom__c >= :DDateTo) ' +
+            ' OR    (DateTo__c <= :DDateFrom) ) ) ' + 
+            ' ORDER BY Value__c DESC ');
+
+		// with food and pillow addons
+		sfController.setFood(Food);
+		sfController.setPlaid('');
+		sfController.setPillow(Pillow);
+		querySelectAddons = sfController.getQuerySelectAddons();
+		System.assertEquals(querySelectAddons, 'SELECT Value__c, Addon__r.Name ' +
+            ' FROM Price__c ' +
+            ' WHERE ' + ' (Addon__r.Name = :Food OR Addon__r.Name = :Pillow) AND ' +
+            ' ( NOT ( (DateFrom__c >= :DDateTo) ' +
+            ' OR    (DateTo__c <= :DDateFrom) ) ) ' + 
+            ' ORDER BY Value__c DESC ');
+
+		// with plaid and pillow addons
+		sfController.setFood('');
+		sfController.setPlaid(Plaid);
+		sfController.setPillow(Pillow);
+		querySelectAddons = sfController.getQuerySelectAddons();
+		System.assertEquals(querySelectAddons, 'SELECT Value__c, Addon__r.Name ' +
+            ' FROM Price__c ' +
+            ' WHERE ' + ' (Addon__r.Name = :Plaid OR Addon__r.Name = :Pillow) AND ' +
+            ' ( NOT ( (DateFrom__c >= :DDateTo) ' +
+            ' OR    (DateTo__c <= :DDateFrom) ) ) ' + 
+            ' ORDER BY Value__c DESC ');
+
+		Test.stopTest();
+
+	}
 	
 	@isTest static void testDoSearch1() {
 		

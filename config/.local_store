@@ -64,7 +64,7 @@
         "id": "01p7F00000V4DQOQA3",
         "lastModifiedById": "0057F000003ctR9QAI",
         "lastModifiedByName": "Dzesen Kopeykin",
-        "lastModifiedDate": "2018-06-25T07:03:09.000Z",
+        "lastModifiedDate": "2018-06-25T07:22:18.000Z",
         "manageableState": "unmanaged",
         "type": "ApexClass",
         "mmState": "clean"
@@ -218,7 +218,7 @@
         "id": "01p7F00000V4WpCQAV",
         "lastModifiedById": "0057F000003ctR9QAI",
         "lastModifiedByName": "Dzesen Kopeykin",
-        "lastModifiedDate": "2018-06-25T07:03:27.000Z",
+        "lastModifiedDate": "2018-06-25T07:37:41.000Z",
         "manageableState": "unmanaged",
         "type": "ApexClass",
         "mmState": "clean"

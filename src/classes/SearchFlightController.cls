@@ -4,9 +4,9 @@ public class SearchFlightController {
     public String CityTo;
     public String DateFrom;   
     public String DateTo;
-    public String Food { get; set; }
-    public String Plaid { get; set; }
-    public String Pillow { get; set; }
+    public String Food;
+    public String Plaid;
+    public String Pillow;
 
     public String allPrices { get; set; }
 
@@ -33,6 +33,15 @@ public class SearchFlightController {
     public void setDateTo(String s) {
         this.DateTo = s;
     }
+    public void setFood(String s) {
+        this.Food = s;
+    }
+    public void setPlaid(String s) {
+        this.Plaid = s;
+    }
+    public void setPillow(String s) {
+        this.Pillow = s;
+    }
 
     public SearchFlightController() {
         this.CityFrom = '';
@@ -51,6 +60,40 @@ public class SearchFlightController {
         this.newBookedFlight = new BookedFlight__c();
 
         this.testStr = new List<Integer>();
+    }
+
+    public String getQuerySelectAddons() {
+        String condition = '';
+        if (Food != '') {
+            if (Plaid != '') {
+                if (Pillow != '') {
+                    condition = ' (Addon__r.Name = :Food OR Addon__r.Name = :Plaid OR Addon__r.Name = :Pillow ) AND ';
+                } else {
+                    condition = ' (Addon__r.Name = :Food OR Addon__r.Name = :Plaid) AND ';
+                }
+            } else if (Pillow != '') {
+                condition = ' (Addon__r.Name = :Food OR Addon__r.Name = :Pillow) AND ';
+            } else {      
+                condition = ' Addon__r.Name = :Food AND ';
+            }
+        } else if (Plaid != '') {
+            if (Pillow != '') {
+                condition = ' (Addon__r.Name = :Plaid OR Addon__r.Name = :Pillow) AND ';
+            } else {
+                condition = ' Addon__r.Name = :Plaid AND ';
+            }
+        } else if (Pillow != '') {
+            condition = ' Addon__r.Name = :Pillow AND ';
+        }
+
+        String querySelectAddons = 'SELECT Value__c, Addon__r.Name ' +
+            ' FROM Price__c ' +
+            ' WHERE ' + condition +
+            ' ( NOT ( (DateFrom__c >= :DDateTo) ' +
+            ' OR    (DateTo__c <= :DDateFrom) ) ) ' + 
+            ' ORDER BY Value__c DESC ';
+
+        return querySelectAddons;
     }
 
     public void doSearch() {
@@ -93,36 +136,7 @@ public class SearchFlightController {
             return;
         }
 
-        String condition = '';
-        if (Food != '') {
-            if (Plaid != '') {
-                if (Pillow != '') {
-                    condition = ' (Addon__r.Name = :Food OR Addon__r.Name = :Plaid OR Addon__r.Name = :Pillow ) AND ';
-                } else {
-                    condition = ' (Addon__r.Name = :Food OR Addon__r.Name = :Plaid) AND ';
-                }
-            } else if (Pillow != '') {
-                condition = ' (Addon__r.Name = :Food OR Addon__r.Name = :Pillow) AND ';
-            } else {      
-                condition = ' Addon__r.Name = :Food AND ';
-            }
-        } else if (Plaid != '') {
-            if (Pillow != '') {
-                condition = ' (Addon__r.Name = :Plaid OR Addon__r.Name = :Pillow) AND ';
-            } else {
-                condition = ' Addon__r.Name = :Plaid AND ';
-            }
-        } else if (Pillow != '') {
-            condition = ' Addon__r.Name = :Pillow AND ';
-        }
-
-        String querySelectAddons = 'SELECT Value__c, Addon__r.Name ' +
-            ' FROM Price__c ' +
-            ' WHERE ' + condition +
-            ' ( NOT ( (DateFrom__c >= :DDateTo) ' +
-            ' OR    (DateTo__c <= :DDateFrom) ) )' + 
-            ' ORDER BY Value__c DESC ';
-
+        String querySelectAddons = getQuerySelectAddons();
         pricesAddonsList = (List<Price__c>)Database.query(querySelectAddons);
         
         allPricesMap = new Map<String, List<Price__c>>{'Flights' => pricesFlightsList, 'Addons' => pricesAddonsList};
