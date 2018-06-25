@@ -1,21 +1,9 @@
 public class SearchFlightController {
 
-    public String CityFrom { get; set; }
-    public String CityTo { get; set; }
-    public String DateFrom;
-    public String getDateFrom() {
-        return this.DateFrom;
-    }
-    public void setDateFrom(String s) {
-        this.DateFrom = s;
-    }
+    public String CityFrom;
+    public String CityTo;
+    public String DateFrom;   
     public String DateTo;
-     public String getDateTo() {
-        return this.DateTo;
-    }
-    public void setDateTo(String s) {
-        this.DateTo = s;
-    }
     public String Food { get; set; }
     public String Plaid { get; set; }
     public String Pillow { get; set; }
@@ -32,6 +20,19 @@ public class SearchFlightController {
     public BookedFlight__c newBookedFlight { get; set; }
 
     public List<Integer> testStr { get; set; }
+
+    public void setCityFrom(String s) {
+        this.CityFrom = s;
+    }
+    public void setCityTo(String s) {
+        this.CityTo = s;
+    }
+    public void setDateFrom(String s) {
+        this.DateFrom = s;
+    }
+    public void setDateTo(String s) {
+        this.DateTo = s;
+    }
 
     public SearchFlightController() {
         this.CityFrom = '';
@@ -88,8 +89,7 @@ public class SearchFlightController {
             ApexPages.addMessage(
                 new ApexPages.Message(
                 ApexPages.Severity.ERROR,
-                'Flights were not found')
-                );
+                'Flights were not found'));
             return;
         }
 
