@@ -8,7 +8,7 @@ public class SearchFlightController {
     public String Plaid;
     public String Pillow;
 
-    public String allPrices { get; set; }
+    public String allPrices;
 
     private List<Price__c> pricesFlightsList;
     private List<Price__c> pricesAddonsList;
@@ -41,6 +41,9 @@ public class SearchFlightController {
     }
     public void setPillow(String s) {
         this.Pillow = s;
+    }
+    public String getAllPrices() {
+        return this.allPrices;
     }
 
     public SearchFlightController() {
